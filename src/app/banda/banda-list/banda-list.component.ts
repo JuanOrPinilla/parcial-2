@@ -9,9 +9,17 @@ import { BandaService } from '../banda.service';
 })
 export class BandaListComponent implements OnInit {
 
+  selectedBanda!: Banda;
+  selected = false;
+
   bandas: Array<Banda> = []
   antiguo:Banda | undefined;
   menor: number = 0;
+
+  onSelected(serie: Banda): void {
+    this.selected = true;
+    this.selectedBanda = serie;
+  }
   constructor(private bandaService: BandaService) { }
 
   getBandas(): void {

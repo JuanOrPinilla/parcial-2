@@ -1,5 +1,7 @@
 <div class="container-fluid">
-  <div class="col-6">
+  <br>
+  <div class="row">
+    <div class="col-6">
     <table class="table table-hover">
       <thead class="thead-dark">
         <tr>
@@ -13,7 +15,7 @@
       <tbody>
         <tr *ngFor="let s of bandas">
           <td>{{ s.id }}</td>
-          <td>{{ s.name }}</td>
+          <td><dd (click)="onSelected(s)" style="color: blue;">{{s.name}}</dd></td>
           <td>{{ s.country }}</td>
           <td>{{ s.genre }}</td>
           <td>{{ s.foundation_year }}</td>
@@ -27,4 +29,8 @@
       <p>No se encontró ninguna banda en la serie.</p>
     </ng-template>
   </div>
+  <div class="col-6" *ngIf="selected">
+    <app-banda-detail [bandaDetail]="selectedBanda"></app-banda-detail>
+</div>
+</div>
 </div>
