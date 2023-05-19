@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="col-6">
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">País</th>
+          <th scope="col">Género</th>
+          <th scope="col">Fundacion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of bandas">
+          <td>{{ s.id }}</td>
+          <td>{{ s.name }}</td>
+          <td>{{ s.country }}</td>
+          <td>{{ s.genre }}</td>
+          <td>{{ s.foundation_year }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-container *ngIf="antiguo; else noAntiguo">
+      <p>La banda más antigua es {{ antiguo.name }} y fue fundada hace {{menor}} años</p>
+    </ng-container>
+    <ng-template #noAntiguo>
+      <p>No se encontró ninguna banda en la serie.</p>
+    </ng-template>
+  </div>
+</div>
